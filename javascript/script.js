@@ -1,5 +1,3 @@
-
-let _computerSelection = getComputerSelection();
 let bestOfGame;
 
 function startGame() 
@@ -9,7 +7,7 @@ function startGame()
 
     bestOfGame = SelectAtTheBestOfGame();
 
-    while (playerScore < bestOfGame || computerScore < bestOfGame)
+    while (playerScore < bestOfGame & computerScore < bestOfGame)
     {
         switch(playRound())
         {
@@ -28,11 +26,19 @@ function startGame()
                 break;
         }
     }
+
+    if (playerScore > computerScore)
+    {
+        console.log('Player win!');
+    } else
+    {
+        console.log('Computer win!');
+    }
 }
 
 function playRound()
 {   
-    return(ChooseWinner(_computerSelection,getPlayerSelection()));
+    return(ChooseWinner(getComputerSelection(),getPlayerSelection()));
 }
 
 function getComputerSelection()
@@ -69,39 +75,39 @@ function ChooseWinner(computerSelection,playerSelection)
         return(10)
     }
 
-    if (computerSelection = '3') //Rock
+    if (computerSelection == '3') //Rock
     {
-        if (playerSelection = 'rock') {
+        if (playerSelection == 'rock') {
             return(0);
         }
-        if (playerSelection = 'paper') {
+        if (playerSelection == 'paper') {
             return(2);
         }
-        if (playerSelection = 'scissors') {
+        if (playerSelection == 'scissors') {
             return(1);
         }
     }
-    if (computerSelection = '2') //paper
+    if (computerSelection == '2') //paper
     {
-        if (playerSelection = 'rock') {
+        if (playerSelection == 'rock') {
             return(1);
         }
-        if (playerSelection = 'paper') {
+        if (playerSelection == 'paper') {
             return(0);
         }
-        if (playerSelection = 'scissors') {
+        if (playerSelection == 'scissors') {
             return(2);
         }
     }
-    if (computerSelection = '1') //scissor
+    if (computerSelection == '1') //scissor
     {
-        if (playerSelection = 'rock') {
+        if (playerSelection == 'rock') {
             return(2);
         }
-        if (playerSelection = 'paper') {
+        if (playerSelection == 'paper') {
             return(1);
         }
-        if (playerSelection = 'scissors') {
+        if (playerSelection == 'scissors') {
             return(0);
         }
     }
