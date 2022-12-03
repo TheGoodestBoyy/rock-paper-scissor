@@ -1,15 +1,40 @@
 let bestOfGame;
+let playerScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll('button');
+const winnerAnnouncer = document.getElementById('WinnerAnnouncer');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        switch(playRound(getComputerSelection(),button.id))
+        {
+            case 0:
+                winnerAnnouncer.innerHTML = "It's a draft. Try again.";//draft
+                break;
+            case 1:
+                winnerAnnouncer.innerHTML = "Computer win this round.";//Computer win
+                computerScore += 1;
+                break;
+            case 2:
+                winnerAnnouncer.innerHTML = "Player win this round.";//Player win
+                playerScore += 1;
+                break;
+            case 10:
+                winnerAnnouncer.innerHTML = "Choice not valid. Try again.";
+                break;
+        }
+    });
+  });
+  
 
 function startGame() 
 {
-    let playerScore = 0;
-    let computerScore = 0;
-
     bestOfGame = SelectAtTheBestOfGame();
 
     while (playerScore < bestOfGame & computerScore < bestOfGame)
     {
-        switch(playRound())
+        switch(playRound(getComputerSelection(),getPlayerSelection()))
         {
             case 0:
                 //draft
@@ -36,9 +61,9 @@ function startGame()
     }
 }
 
-function playRound()
+function playRound(ComputerSelection,PlayerSelection)
 {   
-    return(ChooseWinner(getComputerSelection(),getPlayerSelection()));
+    return(ChooseWinner(ComputerSelection,PlayerSelection));
 }
 
 function getComputerSelection()
@@ -70,7 +95,9 @@ function SelectAtTheBestOfGame()
 */
 function ChooseWinner(computerSelection,playerSelection)
 {
-    if (playerSelection != 'rock' & playerSelection != 'paper' & playerSelection != 'scissor')
+    playerSelection = playerSelection.toLowerCase();
+
+    if (playerSelection != 'rock' & playerSelection != 'paper' & playerSelection != 'scissors')
     {
         return(10)
     }
