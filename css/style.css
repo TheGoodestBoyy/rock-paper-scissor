@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: #122620;
+    background-color: #B68D40;
+}
+
+.JustifyCenter {
+    justify-content: center;
+}
+
+.JustifyCenter {
+    justify-content: space-around;
+}
+
+.Flex {
+    display: flex;
+}
+
+.Font36 {
+    font-size: 36px;
+}
+
+.MainHeader {
+    padding: 5% 0 0 0;
+    font-size: 48px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.SubHeader {
+    padding: 2%;
+    font-size: 24px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.ButtonBoard {
+    padding: 2%;
+}
+
+button {
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px;
+    border-color: white;
+}
+
+#WinnerAnnouncer {
+    padding-top: 5%;
+    font-size: 36px;
+}
